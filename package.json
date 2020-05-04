@@ -24,6 +24,7 @@
   "devDependencies": {},
   "dependencies": {
     "@dguttman/wolfram-alpha-api": "^1.0.0-rc.1",
+    "dotenv": "^8.2.0",
     "node-wolfram-alpha": "^1.2.5",
     "request": "^2.88.2",
     "string-similarity": "^4.0.1",

@@ -1,5 +1,8 @@
 // Supports ES6
 // import { create, Whatsapp } from 'sulla';
+const dotenv = require('dotenv');
+dotenv.config();
+
 const sulla = require('sulla');
 const request = require('request');
 const WolframAlphaAPI = require('@dguttman/wolfram-alpha-api');
@@ -13,7 +16,16 @@ const waApi = WolframAlphaAPI('23G8YJ-WG8RA742Q6');
 const KEEP_LOGGED = true;
 
 // telegram stuff
-const URL = 'https://api.telegram.org/bot1223381492:AAH7PzsPXlZJW91MXWQbQ3cb8i10X3OKcDo/sendMessage?chat_id=-1001326333548&text=';
+const TELEGRAM_API_KEY = process.env.TELEGRAM_API_KEY;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+if(!TELEGRAM_CHAT_ID || !TELEGRAM_CHAT_ID
+	|| TELEGRAM_CHAT_ID == '' || TELEGRAM_API_KEY == '') {
+	console.log('MISSING ENV VARS.... .env file missing or missing vars=[TELEGRAM_API_KEY, TELEGRAM_CHAT_ID]');
+	process.exit(1);
+}
+
+const URL = 'https://api.telegram.org/'+TELEGRAM_API_KEY+'/sendMessage?chat_id='+TELEGRAM_CHAT_ID+'&text=';
 const BOT_API_KEY = '1223381492:AAH7PzsPXlZJW91MXWQbQ3cb8i10X3OKcDo';
 const PRIVATE_CHANNEL_ID = '-1001326333548';
 // end telegram stuff
@@ -24,6 +36,7 @@ const _GIST_URL = 'https://gist.githubusercontent.com/fcavalcantirj/237cb46bc044
 // keywords, jarolWrinker threashold
 let _KEYWORDS = [];
 const JAROL_THRESHOLD = 0.89;
+
 const fetchKeywords = () => {
 	console.log('fetchKeywords...');
 	request(_GIST_URL, { json: true }, (err, res, body) => {
@@ -36,7 +49,6 @@ const fetchKeywords = () => {
 	  }
 	});
 }
-
 // return JaroWrinker 'weight'
 const JaroWrinker = (s1, s2) => {
 	var m = 0;
@@ -102,7 +114,6 @@ const JaroWrinker = (s1, s2) => {
 	return weight;
 }
 
-
 const check_existence_jaro = (phrase, keywords) => {
 	if(!phrase) return false;
 	const phrase_splited = phrase.split(' ');
@@ -123,6 +134,7 @@ const check_existence_jaro = (phrase, keywords) => {
 	}
 	return undefined;
 }
+// END CONTENT JaroWrinker
 
 function sendContent(content) {
 	const urlEncodedMsg = encodeURIComponent(content);
