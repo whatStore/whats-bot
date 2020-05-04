@@ -1,3 +1,14 @@
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+
+
+
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -22,10 +33,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">WhatStore</h3>
+  <h3 align="center">whatStore</h3>
 
   <p align="center">
-    The first whatsApp *store*
+    The first whatsApp store!
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
@@ -97,7 +108,6 @@ npm install npm@latest -g
 
 ### Installation
 
-<!-- 1. Get a free API Key at [https://example.com](https://example.com) -->
 1. Clone the repo
 ```sh
 git clone git@github.com:whatStore/whats-bot.git
@@ -106,8 +116,8 @@ git clone git@github.com:whatStore/whats-bot.git
 ```sh
 npm install
 ```
-4. start the bot
-``sh
+4. RUN
+```sh
 npm run groupBot
 ```
 
