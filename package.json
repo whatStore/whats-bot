@@ -1,0 +1,32 @@
+{
+  "name": "whats-app-scan-group",
+  "version": "0.0.1",
+  "description": "Javascript whatsapp framework",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielcardeenas/sulla.git"
+  },
+  "scripts": {
+    "clear": "rm -rf aroudo",
+    "groupBot": "node groupClone.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "javascript",
+    "bot",
+    "typescript",
+    "automatization",
+    "puppeteer"
+  ],
+  "author": "FCavalcanti",
+  "license": "ISC",
+  "homepage": "https://github.com/danielcardeenas/sulla#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "@dguttman/wolfram-alpha-api": "^1.0.0-rc.1",
+    "node-wolfram-alpha": "^1.2.5",
+    "request": "^2.88.2",
+    "string-similarity": "^4.0.1",
+    "sulla": "^2.3.14"
+  }
+}
